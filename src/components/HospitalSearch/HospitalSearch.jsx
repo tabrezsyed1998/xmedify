@@ -112,6 +112,7 @@ export default function HospitalSearch() {
       </Select>
 
       <Button
+        id="searchBtn" // Added id for Cypress test
         type="submit"
         variant="contained"
         size="large"
