@@ -10,8 +10,13 @@ export default function MyBookings() {
   const [filteredBookings, setFilteredBookings] = useState([]);
 
   useEffect(() => {
-    const localBookings = localStorage.getItem("bookings") || "[]";
-    setBookings(JSON.parse(localBookings));
+    try {
+      const localBookings = localStorage.getItem("bookings") || "[]";
+      setBookings(JSON.parse(localBookings));
+    } catch (error) {
+      console.error("Error parsing bookings from localStorage:", error);
+      setBookings([]);
+    }
   }, []);
 
   useEffect(() => {
